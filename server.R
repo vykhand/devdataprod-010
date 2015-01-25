@@ -7,7 +7,7 @@
 
 library(shiny)
 library(rCharts)
-#library(googleVis)
+library(googleVis)
 #library(tidyr)
 
 shinyServer(function(input, output, session) {
@@ -64,6 +64,13 @@ output$barplot1 <- renderChart({
                     type = 'multiBarChart')
         n1$addParams(dom="barplot1")
         return(n1)
+        })
+
+output$googlevis1 <- renderGvis({
+        dt.gvis <- dt.mean.annual
+        #google vis wants numeric data, not factor data
+        dt.gvis$year <- as.numeric(sub("X","",dt.mean.annual$year))
+        gvisMotionChart(dt.gvis, "Area", "year", options = list(width = 800, height = 600))
         })
 
 })

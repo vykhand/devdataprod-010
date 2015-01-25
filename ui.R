@@ -6,8 +6,8 @@
 #
 
 library(shiny)
-require(rCharts)
-#library(googleVis)
+library(rCharts)
+library(googleVis)
 #library(ggplot2)
 
 shinyUI(navbarPage("House Prices",
@@ -50,6 +50,10 @@ shinyUI(navbarPage("House Prices",
                    
                    
            )),
+  tabPanel("Motion Chart", 
+           titlePanel("House prices exploratory motion chart"),
+           htmlOutput("googlevis1")
+  ),
   
   tabPanel("Documentation", 
            includeHTML("doc.html")

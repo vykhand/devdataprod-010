@@ -12,7 +12,7 @@ output: html_document
 The purpose and criteria for this course project is to demonstrate development of data products using [Shiny project](http://shiny.rstudio.com/) and [rCharts](http://rcharts.io/)
 Also, the secondary goal is to demonstrate the possibilities for interactive visualisations on the data examples that are participating in [IBM Data For Social Good Challenge](http://ibmhadoop.challengepost.com/details/data)
 
-##Basic application usage
+##Analysis navigation menu
 
 On the left there is a sidebar that allows you to choose areas of London and years.
 There are 47 different areas and 18 years of data, years range from 1996 to 2013.
@@ -26,7 +26,7 @@ On the right, there is main panel, that allows you to choose the data representa
 Each of those data representations react to what you choose in the sidebar.
 If you don't select anything, the application will show you the full dataset.
 
-##Meaning of each chart
+###Meaning of each chart
 
 Boxplot shows you the distribution of prices per year. 
 
@@ -34,7 +34,7 @@ Scatterplot shows you values by each year. You can check the tooltip for each va
 
 Barplot shows the relative prices by borough for each year. You can choose stacked or grouped representation.
 
-## More detailed usage instruction
+### Selecting values and displaying charts
 
 Here is the screenshot of empty select input for area:
 
@@ -46,7 +46,14 @@ If you choose particular areas and years, all plots and tables change appearance
 
 You can see that plots contain useful tooltips to show you which value each element is describing.
 
+##Motion chart tab
+
+Motion chart tab is made using googleVis MotionChart, and allows you to do different kinds of exlporarion all at once:
+
+![Motion Chart analysis][3]
+
 ##Data source
+
 The data for this project is taken from [this source](http://data.london.gov.uk/dataset/average-house-prices-borough)
 
 This data represents the yearly change in prices for different regions of London, UK.
@@ -64,3 +71,4 @@ After that we use *tidyr* package to gather different year columns into the key/
 
 [1]: img/Screen1.png
 [2]: img/Screen2.png
+[3]: img/Screen3.png

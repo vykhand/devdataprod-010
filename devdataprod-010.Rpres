@@ -1,0 +1,43 @@
+devdataprod-010 Course Project
+========================================================
+author: Andrey Vykhodtsev
+date: 25-01-2015
+
+Idea of the app
+========================================================
+
+To present price changes over time of houses in London
+
+- By Region (Borough)
+- By Year
+- Using different types of rChart Plots and visualisations
+
+Useful links:
+- [App link](http://vykhand.shinyapps.io/devdataprod-010/)
+- [App code on github](https://github.com/vykhand/devdataprod-010)
+- [Data source](http://data.london.gov.uk/dataset/average-house-prices-borough)
+
+What it allows you to do
+========================================================
+
+- filter by year or area (or leave blank to see all)
+- show boxplot, scatterplot, barplot, or table
+- Example (boxplot filtered by year and area) :
+
+![Example filtered boxplot](img/Screen2.png)
+
+
+Data representation using googleVis
+========================================================
+
+
+```{r, echo=FALSE,results="asis"}
+source("Helper.R")
+suppressPackageStartupMessages(library(googleVis))
+dt.gvis <- dt.mean.annual
+#google vis wants numeric data, not factor data
+dt.gvis$year <- as.numeric(sub("X","",dt.mean.annual$year))
+print(gvisMotionChart(dt.gvis, "Area", "year", options = list(width = 800, height = 600)), tag="chart")
+```
+
+
