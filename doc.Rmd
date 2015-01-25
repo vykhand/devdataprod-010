@@ -1,0 +1,66 @@
+---
+title: "Developing Data Products Group 010 Course Project"
+author: "Andrey Vykhodtsev"
+date: "25 Jan 2015"
+output: html_document
+---
+
+#Analysis of average prices by Borough, London, UK
+
+##Introduction
+
+The purpose and criteria for this course project is to demonstrate development of data products using [Shiny project](http://shiny.rstudio.com/) and [rCharts](http://rcharts.io/)
+Also, the secondary goal is to demonstrate the possibilities for interactive visualisations on the data examples that are participating in [IBM Data For Social Good Challenge](http://ibmhadoop.challengepost.com/details/data)
+
+##Basic application usage
+
+On the left there is a sidebar that allows you to choose areas of London and years.
+There are 47 different areas and 18 years of data, years range from 1996 to 2013.
+On the right, there is main panel, that allows you to choose the data representation from one of those :
+
+* Boxplot
+* Barplot
+* Scatterplot
+* Table
+
+Each of those data representations react to what you choose in the sidebar.
+If you don't select anything, the application will show you the full dataset.
+
+##Meaning of each chart
+
+Boxplot shows you the distribution of prices per year. 
+
+Scatterplot shows you values by each year. You can check the tooltip for each value to see which borough it corresponds to.
+
+Barplot shows the relative prices by borough for each year. You can choose stacked or grouped representation.
+
+## More detailed usage instruction
+
+Here is the screenshot of empty select input for area:
+
+![Area select input][1]
+
+If you choose particular areas and years, all plots and tables change appearance:
+
+![Appearance after selecting years and areas][2]
+
+You can see that plots contain useful tooltips to show you which value each element is describing.
+
+##Data source
+The data for this project is taken from [this source](http://data.london.gov.uk/dataset/average-house-prices-borough)
+
+This data represents the yearly change in prices for different regions of London, UK.
+
+For the purposes of this analysis we are using summary data stored in [this xls file](https://londondatastore-upload.s3.amazonaws.com/average-house-prices-borough.xls).
+
+##Preprocessing and analysing data
+
+Data we are using is taken from the sheet 3 "Mean prices anually".
+
+All the code to load and preprocess the data
+
+The data is loaded using "xlsx" package. Then it is preprocessed to eliminate NA values.
+After that we use *tidyr* package to gather different year columns into the key/value pairs -> year/price.
+
+[1]: img/Screen1.png
+[2]: img/Screen2.png

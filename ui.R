@@ -52,6 +52,7 @@ shinyUI(navbarPage("House Prices",
            )),
   
   tabPanel("Documentation", 
-           titlePanel("Average House Prices Borough"))
+           includeHTML("doc.html")
+           )
 
 ))
