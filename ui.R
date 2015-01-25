@@ -6,13 +6,27 @@
 #
 
 library(shiny)
-require(rCharts)
-library(googleVis)
-
+#require(rCharts)
+#library(googleVis)
+library(ggplot2)
 
 shinyUI(navbarPage("House Prices",
 
   # Application title
+
+  tabPanel("Graphs", 
+           titlePanel("House Prices Borough - plots and charts")),
+           sidebarLayout(
+                sidebarPanel(
+                          selectInput("inArea", "Select area:", choices="",  multiple=TRUE, selectize=TRUE),
+                        selectInput("inYear", "Select year:", choices="",  multiple=TRUE, selectize=TRUE)
+                        ),
+                mainPanel(tabsetPanel(tabPanel("Barchart"),
+                          tabPanel("Scatterplot"),
+                          tabPanel("Boxplot")
+                        ))
+           ),
+  
   tabPanel("Table", 
            titlePanel("House Prices Borough - table view"),
            sidebarLayout(
@@ -22,12 +36,11 @@ shinyUI(navbarPage("House Prices",
                    ),
                    mainPanel(
                            #htmlOutput("pricetab")
-                           textOutput("dbg"),
                            dataTableOutput("pricetab")
-                           )
-           
-           
-           
+                   )
+                   
+                   
+                   
            )),
   
   tabPanel("Documentation", 

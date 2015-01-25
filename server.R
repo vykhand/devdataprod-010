@@ -35,7 +35,5 @@ dt.selected <-
 #        })
 
 output$pricetab <- renderDataTable(dt.selected(), options = list(paging = T, searching=F, searcheable=F))
-output$dbg <- renderText({input$inArea
-        
-        })
+
 })

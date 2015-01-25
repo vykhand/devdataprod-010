@@ -1,5 +1,7 @@
 #https://londondatastore-upload.s3.amazonaws.com/average-house-prices-borough.xls
-library(xlsx)
+require(xlsx)
+require(tidyr)
+
 if (!file.exists("avg_prices.xls")) download.file("https://londondatastore-upload.s3.amazonaws.com/average-house-prices-borough.xls", destfile="avg_prices.xls", method = "curl")
 dt.mean.annual <- read.xlsx("avg_prices.xls", sheetIndex = 3, header = T)
 #dt.mean.quarter <- read.xlsx("avg_prices.xls", sheetIndex = 5, header = F, startRow = 4)
