@@ -6,6 +6,8 @@ date: 25-01-2015
 Idea of the app
 ========================================================
 
+
+
 To present price changes over time of houses in London
 
 - By Region (Borough)
@@ -26,20 +28,27 @@ What it allows you to do
 
 ![Example filtered boxplot](img/Screen2.png)
 
+Distribution and growth of prices over the years
+========================================================
+
+For [some reason](https://github.com/ramnathv/rCharts/issues/571) I was not able to display rCharts on rPubs. Therefore I am showing *ggplot2* version
+
+![plot of chunk unnamed-chunk-1](devdataprod-010-figure/unnamed-chunk-1-1.png) 
+
 
 Data representation using googleVis
 ========================================================
 
 
 <!-- MotionChart generated in R 3.1.2 by googleVis 0.5.8 package -->
-<!-- Sun Jan 25 18:41:48 2015 -->
+<!-- Sun Jan 25 19:42:58 2015 -->
 
 
 <!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
-function gvisDataMotionChartIDf0a26c63a980 () {
+function gvisDataMotionChartIDf5817932ca30 () {
 var data = new google.visualization.DataTable();
 var datajson =
 [
@@ -4282,15 +4291,15 @@ return(data);
 }
  
 // jsDrawChart
-function drawChartMotionChartIDf0a26c63a980() {
-var data = gvisDataMotionChartIDf0a26c63a980();
+function drawChartMotionChartIDf5817932ca30() {
+var data = gvisDataMotionChartIDf5817932ca30();
 var options = {};
 options["width"] =    800;
 options["height"] =    600;
 options["state"] = "";
 
     var chart = new google.visualization.MotionChart(
-    document.getElementById('MotionChartIDf0a26c63a980')
+    document.getElementById('MotionChartIDf5817932ca30')
     );
     chart.draw(data,options);
     
@@ -4314,9 +4323,9 @@ if (newPackage)
   pkgs.push(chartid);
   
 // Add the drawChart function to the global list of callbacks
-callbacks.push(drawChartMotionChartIDf0a26c63a980);
+callbacks.push(drawChartMotionChartIDf5817932ca30);
 })();
-function displayChartMotionChartIDf0a26c63a980() {
+function displayChartMotionChartIDf5817932ca30() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -4340,11 +4349,11 @@ callbacks.shift()();
 </script>
  
 <!-- jsChart -->  
-<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartIDf0a26c63a980"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartIDf5817932ca30"></script>
  
 <!-- divChart -->
   
-<div id="MotionChartIDf0a26c63a980" 
+<div id="MotionChartIDf5817932ca30" 
   style="width: 800; height: 600;">
 </div>
 

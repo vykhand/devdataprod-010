@@ -6,6 +6,14 @@ date: 25-01-2015
 Idea of the app
 ========================================================
 
+```{r setup, message = F, echo = F}
+require(rCharts)
+suppressPackageStartupMessages(library(googleVis))
+source("Helper.R")
+options(RCHART_WIDTH = 800, RCHART_HEIGHT = 500)
+knitr::opts_chunk$set(comment = NA, results = 'asis', tidy = F, message = F)
+```
+
 To present price changes over time of houses in London
 
 - By Region (Borough)
@@ -26,14 +34,26 @@ What it allows you to do
 
 ![Example filtered boxplot](img/Screen2.png)
 
+Distribution and growth of prices over the years
+========================================================
+
+For [some reason](https://github.com/ramnathv/rCharts/issues/571) I was not able to display rCharts on rPubs. Therefore I am showing *ggplot2* version
+
+```{r echo = F, fig.width=20}
+
+library(ggplot2)
+gg <- ggplot(dt.mean.annual, aes(year, price))
+gg <- gg + geom_boxplot(color="blue")
+gg
+
+```
+
 
 Data representation using googleVis
 ========================================================
 
 
 ```{r, echo=FALSE,results="asis"}
-source("Helper.R")
-suppressPackageStartupMessages(library(googleVis))
 dt.gvis <- dt.mean.annual
 #google vis wants numeric data, not factor data
 dt.gvis$year <- as.numeric(sub("X","",dt.mean.annual$year))
